@@ -8,7 +8,9 @@ import java.sql.Statement;
 public class SQL {
  private final String url="jdbc:postgresql://localhost:5432/kronsoft";
  private final String user ="postgres";
- private final String password="parezax2";
+
+ private static final String DB_SYS_PROP = System.getProperty("dbPass");
+ private final String password=DB_SYS_PROP != null && !DB_SYS_PROP.isEmpty() ? DB_SYS_PROP : "parezax2";
  
  public void connect() {
 	 try(Connection c= DriverManager.getConnection(url,user,password)) {

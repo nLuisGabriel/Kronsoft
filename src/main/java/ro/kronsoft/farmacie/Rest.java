@@ -31,10 +31,11 @@ public class Rest {
 	final static String VC = "http://localhost:8085/api/v1/vz_cant";
 	final static String EV = "http://localhost:8085/api/v1/evidenta";
 
+	private static final String PATH_SYS_PROP = System.getProperty("rootPath");
 	static RestTemplate restTemplate = new RestTemplate();
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-		String caleFisier = "C://Users//nedel//Desktop//Practica//Resurse//";
+		String caleFisier = PATH_SYS_PROP != null && !PATH_SYS_PROP.isEmpty() ? PATH_SYS_PROP : "C://Users//nedel//Desktop//Practica//Resurse//";
 		System.out
 				.println("Documentele excel nu trebuie sa contina denumirea default: !New Microsoft Excel Worksheet!");
 		String fileExtension = "xlsx";
